@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amigo Secreto</title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>🎁 Amigo Secreto</h1>
+    <p class="subtitle">Agrega participantes y realiza el sorteo sin errores (nadie se asigna a sí mismo).</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Participantes</h2>
+      <form id="addForm" class="row" autocomplete="off">
+        <label for="nameInput" class="sr-only">Nombre</label>
+        <input id="nameInput" type="text" placeholder="Escribe un nombre y presiona Agregar" required />
+        <button type="submit" class="btn primary">Agregar</button>
+      </form>
+
+      <div class="info-row">
+        <span id="countBadge" class="badge">0 participantes</span>
+        <div class="row gap">
+          <button id="clearBtn" class="btn danger outline" type="button">Limpiar lista</button>
+          <button id="importBtn" class="btn" type="button" title="Pega una lista separada por comas o saltos de línea">Importar</button>
+          <button id="exportBtn" class="btn" type="button">Exportar .csv</button>
+        </div>
+      </div>
+
+      <ul id="list" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Sorteo</h2>
+      <div class="row gap">
+        <button id="drawBtn" class="btn success">Sortear</button>
+        <button id="clearResultsBtn" class="btn outline">Borrar resultados</button>
+        <button id="copyBtn" class="btn" title="Copiar resultados">Copiar</button>
+      </div>
+      <p id="message" role="status" class="message" aria-live="polite"></p>
+      <ol id="results" class="results"></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Hecho con ❤️ — Guarda esta página como marcador para volver a tu lista. Los datos se guardan en tu navegador (LocalStorage).</small>
+  </footer>
+
+  <script src="src/app.js"></script>
+</body>
+</html>
